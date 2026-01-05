@@ -29,31 +29,18 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EntityListeners(AuditingEntityListener.class)
+
 @Entity
 @Table(name="bookingreview")
-public class Review {
+public class Review extends BaseModel{
     
-    @Id  // this annotation makes the id property a primary key of our table
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
-
 
     @Column(nullable = false)
     private String content;
 
-    Double rating;
-
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate  // this annotation tells spring that only handle this for the object creation
-    private Date createdAt;
+    private Double rating;
 
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate // this annotation tells spring that only handle this for the object update
-    private Date updatedAt;
 
 
     @Override
