@@ -19,7 +19,7 @@ import jakarta.persistence.TemporalType;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseModel {
     @Id  // this annotation makes the id property a primary key of our table
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
 
         @Column(nullable = false)
