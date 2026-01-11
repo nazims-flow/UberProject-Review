@@ -19,10 +19,10 @@ import jakarta.persistence.TemporalType;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseModel {
     @Id  // this annotation makes the id property a primary key of our table
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-        @Column(nullable = false)
+    @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate  // this annotation tells spring that only handle this for the object creation
     protected Date createdAt;
